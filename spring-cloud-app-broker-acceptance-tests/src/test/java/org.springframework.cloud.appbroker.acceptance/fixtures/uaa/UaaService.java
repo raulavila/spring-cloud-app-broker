@@ -66,4 +66,16 @@ public class UaaService {
 			.then();
 	}
 
+	public Mono<Void> deleteClient(String clientId) {
+		return uaaClient
+			.clients()
+			.delete(DeleteClientRequest
+				.builder()
+				.clientId(clientId)
+				.build())
+			.doOnError(error -> LOGGER.warn("Error deleting client: " + clientId + " with error: " + error))
+			.onErrorResume(e -> Mono.empty())
+			.then();
+	}
+
 }

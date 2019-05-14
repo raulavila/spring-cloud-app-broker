@@ -27,8 +27,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Disabled("This test can only be run with a Cloud Foundry user or client that has 'client.write' authority, " +
-	"so it should not be run in CI")
+//@Disabled("This test can only be run with a Cloud Foundry user or client that has 'client.write' authority, " +
+//	"so it should not be run in CI")
 class CreateInstanceWithOAuth2CredentialsAcceptanceTest extends CloudFoundryAcceptanceTest {
 
 	private static final String APP_NAME = "app-create-oauth2";
@@ -61,15 +61,15 @@ class CreateInstanceWithOAuth2CredentialsAcceptanceTest extends CloudFoundryAcce
 		"spring.cloud.appbroker.services[0].apps[0].name=" + APP_NAME,
 		"spring.cloud.appbroker.services[0].apps[0].path=" + BACKING_APP_PATH,
 		
-		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].name=SpringSecurityOAuth2",
-		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.registration=sample-app-client",
-		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.grant-types=[\"client_credentials\"]",
-		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.authorities=[\"uaa.resource\"]",
-		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.length=12",
-		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.include-uppercase-alpha=false",
-		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.include-lowercase-alpha=true",
-		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.include-numeric=false",
-		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.include-special=false"
+//		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].name=SpringSecurityOAuth2",
+//		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.registration=sample-app-client",
+//		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.grant-types=[\"client_credentials\"]",
+//		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.authorities=[\"uaa.resource\"]",
+//		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.length=12",
+//		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.include-uppercase-alpha=false",
+//		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.include-lowercase-alpha=true",
+//		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.include-numeric=false",
+//		"spring.cloud.appbroker.services[0].apps[0].credential-providers[0].args.include-special=false"
 	})
 	void deployAppsWithOAuth2OnCreateService() {
 		// when a service instance is created
